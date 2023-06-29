@@ -1,10 +1,10 @@
 import React from "react";
 import Cards from "./Cards";
-import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import {
   BsFillArrowLeftSquareFill,
   BsFillArrowRightSquareFill,
 } from "react-icons/bs";
+
 const CardBanner = () => {
   const slideLeft = () => {
     var slider = document.getElementById("slider");

@@ -1,6 +1,6 @@
 import Banner from "./components/Banner";
 import CardBanner from "./components/CardBanner";
-import Cards from "./components/Cards";
+// import Cards from "./components/Cards";
 // import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 
