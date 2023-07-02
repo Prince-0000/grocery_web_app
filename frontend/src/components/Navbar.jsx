@@ -8,8 +8,8 @@ const Navbar = () => {
         setNav(!nav);
     }
   return (
-    <div className='text-white flex justify-between items-center w-full bg-blue-500 h-[80px] mx-auto px-[50px] p-4'>
-        <a href='/' alt='home' className='w-full md:text-3xl text-2xl font-bold'>Retail</a>
+    <div className='text-white flex justify-between items-center w-full bg-green-600 h-[80px] mx-auto px-[50px] p-4'>
+        <a href='/' alt='home' className='w-full md:text-3xl text-2xl font-bold'>Dukaan</a>
         <input type="text" placeholder='Search items' className='mr-[50px] h-[35px] placeholder:pl-4 placeholder:text-base md:placeholder:text-lg text:border rounded-md text:border-solid block w-full text-xl text-slate-500'></input>
         <ul className='hidden md:flex text-base font-normal'>
             <li className='p-4 px-5' >Home</li>
