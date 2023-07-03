@@ -6,7 +6,7 @@ export const client = createClient({
     dataset:"production",
     apiVersion:"2023-07-03",
     useCdn:true,
-    token:'skKSKcFObAklnqZlddZo3HGD2jlIE8lzk8yxHb3lZQnssq7kfHqN5v95TSEoPVMZZHxSg0SvvRBpzU2d80v9TuJNFoiYzIu2IjBxmS9IOgnoUvV75vRscsbssqUhHDQ6NZL3syBVJEAy6TW71P99kXVlwi5N55CEDsq3q2cM3gqJrJEgREFF'
+    token:process.env.SANITY_TOKEN
 });
 
 const builder = imageUrlBuilder(client);
