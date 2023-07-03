@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import { RxDotFilled } from "react-icons/rx";
-// import Banner1 from "../assests/banner1.png";
-// import Banner2 from "../assests/banner2.png";
+import Banner1 from "../assests/banner1.png";
+import Banner2 from "../assests/banner2.png";
 // import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
