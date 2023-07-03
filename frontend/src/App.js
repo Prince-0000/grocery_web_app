@@ -1,4 +1,4 @@
-import Banner from "./components/Banner";
+import HeroBanner from "./components/HeroBanner";
 import CardBanner from "./components/CardBanner";
 import CategoryBanner from "./components/CategoryBanner";
 import Footer from "./components/Footer";
@@ -12,7 +12,7 @@ function App() {
         <Navbar />
         <CategoryBanner />
           {/* <Home /> */}
-        <Banner /> 
+        <HeroBanner /> 
         {/* <Cards /> */}
         <CardBanner />
         <CardBanner />
