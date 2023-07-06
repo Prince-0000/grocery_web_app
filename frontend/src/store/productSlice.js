@@ -6,7 +6,7 @@ const initialState={
     status:'idle'
 }
 
-
+//nititn
 const productSlice=createSlice({
     name:'productSlice',
     initialState,
