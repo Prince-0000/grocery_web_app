@@ -1,34 +1,55 @@
 import React, { useEffect, useState } from "react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import { RxDotFilled } from "react-icons/rx";
-import Banner1 from "../assests/banner1.png";
-import Banner2 from "../assests/banner2.png";
+// import Banner1 from "../assests/banner1.png";
+// import Banner2 from "../assests/banner2.png";
 // import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 import { client, urlFor } from "../lib/client";
+import {useDispatch,useSelector} from 'react-redux'
+import { getProducts } from "../store/productSlice";
+
 
 const HeroBanner = () => {
   const [state, setState] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const query = '*[_type == "banner"]';
-        const response = await client.fetch(query);
+  const {data}=useSelector(state=>state.products)
+
+  console.log(data);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const query = '*[_type == "banner"]';
+  //       const response = await client.fetch(query);
         
-        setState(response);
-      } catch (error) {
-        console.error("Error fetching banner data:", error);
-      }
-    };
+  //       setState(response);
+  //     } catch (error) {
+  //       console.error("Error fetching banner data:", error);
+  //     }
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
- 
+  // ------- redux ---------//
+
+  const dispatch=useDispatch();
+
+
+  useEffect(()=>{
+
+      dispatch(getProducts())
+  },[])
+
+
+  // ------//
 
   // console.log(state)
+
+  
+  if(state.length===0){
+      return <div>Loading</div>
+  }
   // const slides = [
   //   {
   //     // url:urlFor(state[0].image).url()
@@ -56,9 +77,6 @@ const HeroBanner = () => {
     // setCurrentIndex(newIndex);
   };
   // console.log(banner)
-  if(state.length===0){
-      return <div>Loading</div>
-  }
   console.log(state);
   return (
     <>
