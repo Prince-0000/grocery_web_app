@@ -24,12 +24,9 @@ const CategoryBanner = () => {
   return (
     <div className='grid grid-flow-col auto-cols-min bg-white h-[100px] my-4 mx-4'>
       <CategoryCards name={state[0].name} image={urlFor(state[0].image).url()}/>
-      {/* <CategoryCards />
-      <CategoryCards />
-      <CategoryCards />
-      <CategoryCards /> */}
+
       {state.map((card)=>(
-          <div index={card._id}>
+          <div key={card._id}>
             <CategoryCards name={card.name} image={urlFor(card.image).url()}/>
           </div>
       ))}

@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import { FiShoppingCart } from 'react-icons/fi';
+import { Link } from "react-router-dom";
 const Navbar = () => {
     const [nav,setNav] = useState(false);
-
     const handleNav = () => {
         setNav(!nav);
     }
@@ -12,9 +12,12 @@ const Navbar = () => {
         <a href='/' alt='home' className='w-full md:text-3xl text-2xl font-bold'>Dukaan</a>
         <input type="text" placeholder='Search items' className='mr-[50px] h-[35px] placeholder:pl-4 placeholder:text-base md:placeholder:text-lg text:border rounded-md text:border-solid block w-full text-xl text-slate-500'></input>
         <ul className='hidden md:flex text-base font-normal'>
-            <li className='p-4 px-5' >Home</li>
+            <Link to='/' className='p-4 px-5' >Home</Link>
             <li className='p-4 px-5'>Categories</li>
-            <button className='p-4 px-5'><FiShoppingCart size={20}/></button>
+            <Link to='/cart'>
+              <button className='p-4 py-5'><FiShoppingCart size={20}/></button>
+            </Link>
+           
             <button className='mx-5 text-black my-[10px] mx-[3px] bg-white w-[90px] h-[35px] font-medium'>Login</button>
         </ul>
         <div onClick={handleNav} className='cursor-pointer md:hidden'>

@@ -9,10 +9,10 @@ const Cards = () => {
         <img src={Watch} alt="watch" />
       </div>
       <div className="flex w-full relative text-center">
-        <p className="absolute left-2 top-1 md:py-2 sm:py-1 md:text-xs sm:text-[10px] text-[9px] font-normal  md:mt-[-10px] sm:mt-[-9px] md:mb-[-5px] sm:mb-[-4px] mt-[-6px] mb-[-12px] text-clip overflow-hidden">
+        <p className="absolute left-2 top-1 py-2 md:text-xs sm:text-[10px] text-[9px] font-normal  md:mt-[-10px] sm:mt-[-9px] md:mb-[-5px] sm:mb-[-4px] mt-[-6px] mb-[-12px] text-clip overflow-hidden">
           Apple Smartwatch
         </p>
-        <p className="absolute left-2 top-3 md:text-[12px] sm:text-[10px] text-[8px] font-bold ">
+        <p className="absolute pt-2 left-2 top-3 md:text-[12px] sm:text-[10px] text-[8px] font-bold ">
           Rs. 80000
         </p>
       </div>
