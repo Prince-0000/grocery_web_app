@@ -1,31 +1,41 @@
 import React, { useState, useEffect } from 'react'
 import CategoryCards from './CategoryCards'
 import {client, urlFor} from '../lib/client';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCategory } from '../store/categorySlice';
 
 const CategoryBanner = () => {
-  const [state, setState] = useState([]);
+  // const [state, setState] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const query = '*[_type == "category"]';
-        const response = await client.fetch(query);
+  const {data} = useSelector(state=>state.categories);
+  console.log(data);
+
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+    dispatch(getCategory())
+  },[])
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const query = '*[_type == "category"]';
+  //       const response = await client.fetch(query);
         
-        setState(response);
-      } catch (error) {
-        console.error("Error fetching banner data:", error);
-      }
-    };
+  //       setState(response);
+  //     } catch (error) {
+  //       console.error("Error fetching banner data:", error);
+  //     }
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
-  if(state.length===0) return <div>loading...</div>
+  if(data.length===0) return <div>loading...</div>
   return (
     <div className='grid grid-flow-col auto-cols-min bg-white h-[100px] my-4 mx-4'>
-      <CategoryCards name={state[0].name} image={urlFor(state[0].image).url()}/>
+      {/* <CategoryCards name={data[0].name} image={urlFor(data[0].image).url()}/> */}
 
-      {state.map((card)=>(
+      {data.map((card)=>(
           <div key={card._id}>
             <CategoryCards name={card.name} image={urlFor(card.image).url()}/>
           </div>

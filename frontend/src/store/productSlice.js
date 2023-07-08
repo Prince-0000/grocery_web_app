@@ -1,49 +1,75 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-import { client } from "../lib/client";
+import { client } from '../lib/client';
+
 const initialState={
     data:[],
-    status:'idle'
+    databi:[],
+    databh:[],
+
+    status:"idle"
 }
 
-//nititn
-const productSlice=createSlice({
-    name:'productSlice',
+const productSlice = createSlice({
+    name:'Product',
     initialState,
     reducers:{
-
+        
     },
     extraReducers:(builder)=>{
         builder
-        .addCase(getProducts.pending,(state,action)=>{
-            state.status='pending'
+        .addCase(getProduct.pending,(state,action)=>{
+            state.status = 'pending'
         })
-        .addCase(getProducts.fulfilled,(state,action)=>{
-            state.data=action.payload;
+        .addCase(getProduct.fulfilled,(state,action)=>{
+            state.data = action.payload;
             state.status='fetched'
         })
-        .addCase(getProducts.rejected,(state,action)=>{
-            state.status='errorrr'
+        .addCase(getProduct.rejected,(state,action)=>{
+            state.status='error'
         })
-    
+        .addCase(getBiscuits.pending,(state,action)=>{
+            state.status = 'pending'
+        })
+        .addCase(getBiscuits.fulfilled,(state,action)=>{
+            state.databi = action.payload;
+            state.status='fetched'
+        })
+        .addCase(getBiscuits.rejected,(state,action)=>{
+            state.status='error'
+        })
+        .addCase(getBhujia.pending,(state,action)=>{
+            state.status = 'pending'
+        })
+        .addCase(getBhujia.fulfilled,(state,action)=>{
+            state.databh = action.payload;
+            state.status='fetched'
+        })
+        .addCase(getBhujia.rejected,(state,action)=>{
+            state.status='error'
+        })
     }
-})
-
+});
 
 export default productSlice.reducer;
 
-export const getProducts=createAsyncThunk('product/get',async ()=>{
-    
-    
-        const query = '*[_type == "banner"]';
-        const response = await client.fetch(query);
-        
-       console.log('this is result',response)
-        
-        return response;
-      
-
-    //   } catch (error) {
-    //     console.error("Error fetching banner data:", error);
-    //   }
+export const getProduct=createAsyncThunk('product/get',async ()=>{
+    const query = '*[_type == "product"]';
+    const response = await client.fetch(query);
+    console.log("product response",response);
+    return response;
 })
+
+export const getBiscuits=createAsyncThunk('biscuit/get',async ()=>{
+    const query = '*[type == "biscuit"]';
+    const response = await client.fetch(query);
+    console.log("Biscuits",response);
+    return response;
+})
+export const getBhujia=createAsyncThunk('bhujia/get',async ()=>{
+    const query = '*[type == "bhujia"]';
+    const response = await client.fetch(query);
+    console.log("Bhujia",response);
+    return response;
+})
+

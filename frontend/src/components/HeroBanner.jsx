@@ -7,11 +7,11 @@ import { RxDotFilled } from "react-icons/rx";
 import "react-toastify/dist/ReactToastify.css";
 import { urlFor } from "../lib/client";
 import {useDispatch,useSelector} from 'react-redux'
-import { getProducts } from "../store/productSlice";
+import { getBanners } from "../store/bannerSlice";
 
 
 const HeroBanner = () => {
-  const {data}=useSelector(state=>state.products)
+  const {data}=useSelector(state=>state.banners)
 
   console.log(data);
 
@@ -22,7 +22,7 @@ const HeroBanner = () => {
 
   useEffect(()=>{
 
-      dispatch(getProducts())
+      dispatch(getBanners())
   },[])
 
 
