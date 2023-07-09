@@ -3,13 +3,15 @@ import { configureStore } from "@reduxjs/toolkit";
 import bannerSlice from "./bannerSlice";
 import productSlice from './productSlice';
 import categorySlice from "./categorySlice";
+import cartSlice from "./cartSlice";
 
 const store=configureStore({
     reducer:
     {
         banners:bannerSlice,
         products:productSlice,
-        categories:categorySlice
+        categories:categorySlice,
+        cart:cartSlice,
     }
 })
 

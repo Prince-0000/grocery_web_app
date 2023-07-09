@@ -1,5 +1,5 @@
 import React from "react";
-const Cards = ({image,price,name}) => {
+const Cards = ({plus,image,price,name}) => {
 
   return (
     <div className="md:w-[200px] md:h-[230px] border-[0.1px] border-slate-300">
@@ -14,6 +14,7 @@ const Cards = ({image,price,name}) => {
         </p>
       <div className="flex items-center justify-content w-full relative py-1">
         <button
+          onClick={plus}
           type="button"
           className="ml-4 border-[0.5px] w-10/12 text-[15px] leading-[28px] rounded-full hover:bg-gray-100 active:bg-gray-200"
         >
