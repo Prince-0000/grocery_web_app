@@ -27,10 +27,8 @@ const CardBanner = ({ products }) => {
     dispatch(add(product));
   };
 
-  if (products.length === 0) return;
-  <div className="flex justify-center items-center">
-    <ReactLoading type="cylon" color="#0000FF" height={100} width={50} />
-  </div>;
+  if (products.length === 0) return <h1>Loading</h1>;
+
   return (
     <>
       <div className="bg-white my-[30px] mx-4">
@@ -49,7 +47,7 @@ const CardBanner = ({ products }) => {
             <div className="flex grid grid-flow-col auto-cols-max gap-3 items-center">
               {products.map((product) => (
                 <div key={product._id}>
-                  {/* <Cards image={urlFor(product.image).url()} price={product.price} name={product.name}/> */}
+                  {/* <Cards product={product} image={urlFor(product.image).url()} price={product.price} name={product.name}/> */}
                   <div className="md:w-[200px] md:h-[230px] border-[0.1px] border-slate-300">
                     <div className="px-auto mx-auto my-[1rem] w-[6rem] h-[6rem]">
                       <img

@@ -1,5 +1,14 @@
 import React from "react";
-const Cards = ({plus,image,price,name}) => {
+import { useDispatch, useSelector } from "react-redux";
+import { add } from "../store/cartSlice";
+
+const Cards = ({product,image,price,name}) => {
+  console.log("In cards",product);
+  const dispatch = useDispatch();
+
+  const addToCart = (product) => {
+    dispatch(add(product));
+  };
 
   return (
     <div className="md:w-[200px] md:h-[230px] border-[0.1px] border-slate-300">
@@ -14,7 +23,7 @@ const Cards = ({plus,image,price,name}) => {
         </p>
       <div className="flex items-center justify-content w-full relative py-1">
         <button
-          onClick={plus}
+          onClick={() => addToCart(add(product))}
           type="button"
           className="ml-4 border-[0.5px] w-10/12 text-[15px] leading-[28px] rounded-full hover:bg-gray-100 active:bg-gray-200"
         >
