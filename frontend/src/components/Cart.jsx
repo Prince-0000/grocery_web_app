@@ -1,9 +1,62 @@
 import CartCard from "./CartCard";
 import { useSelector } from "react-redux";
 import { urlFor } from "../lib/client";
+import getStripe from "../getStripe";
+
 const Cart = () => {
   const products = useSelector((state) => state.cart);
+  const handleCheckout = async () => {
+    const stripe = await getStripe();
 
+    const response = await fetch('http://localhost:4000/checkout', {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(products)
+    });
+    if(response.statusCode === 500) return;
+    const data = await response.json();
+    // toast.loading('Redirecting...');
+    if(data.length===0) return <div>Redirecting...</div>
+    stripe.redirectToCheckout({sessionId : data.id});
+}
+
+  const getTotalQuanity = () => {
+    // console.log("Get total quantity",products);
+    let total = 0;
+
+    products.forEach((item) =>{
+        total += item.quantity;
+    })
+    return total;
+  }
+  const getTotalPrice = () => {
+    let total = 0;
+
+    products.forEach((item) => {
+      total += item.quantity*item.price;
+    })
+    return total;
+  }
+
+  // async function handleCheckout() {
+  //   const stripe = await getStripe();
+  //   const { error } = await stripe.redirectToCheckout({
+  //     lineItems: [
+  //       {
+  //         // image: {products[0].image},
+  //         price: 10000,
+  //         quantity: 2,
+  //       },
+  //     ],
+  //     mode: 'subscription',
+  //     successUrl: `http://localhost:3000/success`,
+  //     cancelUrl: `http://localhost:3000/cancel`,
+  //     customerEmail: 'princemehta516@gmail.com',
+  //   });
+  //   console.warn(error.message);
+  // }
   // if(products.length===0) return <h1>Loading...</h1>;
   return (
     <div className="my-3">
@@ -13,6 +66,7 @@ const Cart = () => {
       <div className="relative">
       <div id="slider" className="p-2 grid grid-cols-1 divide-y gap-2 overflow-y-scroll scroll whitespace-nowrap scroll-smooth no-scrollbar">
         {products.map((product) => (
+          <div key={product._id}>
           <CartCard
             image={urlFor(product.image).url()}
             name={product.name}
@@ -20,12 +74,20 @@ const Cart = () => {
             id={product._id}
             quantity={product.quantity}
           />
+          </div>
         ))}
       </div>
-      <div className="absolute top-0 right-[3rem] bg-white w-[30%] h-[15rem]">
-          <div className="m-4 text-xl font-medium">
-            <p>Total Quantity</p>
+      <div className="absolute top-0 right-[3rem] bg-white w-[30%] h-[12rem]">
+          <div className="m-4 text-base font-normal">
+            <p>Total Quantity:<span className="px-2 font-medium">{getTotalQuanity()}</span></p>
+            <p className="my-4">Total Price:<span className="px-2 font-medium">Rs.{getTotalPrice()}</span></p>
           </div>
+          <div className="mt-10 mx-[4.5rem] w-[15rem] ">
+          <button onClick={handleCheckout} className="rounded-lg bg-green-500 text-white text-[17px] leading-8 w-[15rem] h-9">
+            Proceed to Checkout
+          </button>
+          </div>
+          
       </div>
       </div>
     </div>
