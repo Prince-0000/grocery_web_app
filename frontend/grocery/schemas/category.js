@@ -12,6 +12,11 @@ export default{
             name:'image',
             title:'Image',
             type:'image'
+        },
+        {
+            name:'type',
+            title:'Type',
+            type:'string'
         }
     ]
 }

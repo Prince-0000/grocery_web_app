@@ -11,15 +11,17 @@ import ProductDetail from "./components/ProductDetail";
 import Cart from './components/Cart';
 import Success from './components/Success';
 import Cancel from './components/Cancel';
+import CategoryPage from './components/CategoryPage';
 
 function App() {
   const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={<RouteLayout/>}>
       <Route index element={<Home />}/>
-      <Route path='/product' element={<ProductDetail />} />
+      <Route path='/product/:productId' element={<ProductDetail />} />
       <Route path='/cart' element={<Cart />} />
       <Route path = '/success' element={<Success />} />
       <Route path = '/cancel' element={<Cancel />} />
+      <Route path='/category/:productType' element={<CategoryPage />}/>
     </Route>
   ))
   return (

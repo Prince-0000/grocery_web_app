@@ -14,7 +14,13 @@ const productSlice = createSlice({
     name:'Product',
     initialState,
     reducers:{
-        
+        find(state,action){
+            state.data.find((item)=>{
+                if(item._id===action.payload) return item;
+                return null;
+            })
+           
+        }
     },
     extraReducers:(builder)=>{
         builder

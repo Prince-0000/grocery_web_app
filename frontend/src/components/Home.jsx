@@ -17,6 +17,7 @@ console.log("Databi",databi)
 const dispatch = useDispatch();
   
 useEffect(()=>{
+  dispatch(getProduct());
   dispatch(getBiscuits());
   dispatch(getBhujia());
   // dispatch(getProduct());

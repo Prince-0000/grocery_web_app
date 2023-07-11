@@ -1,7 +1,8 @@
 import React from "react";
-import Cards from "./Cards";
+import {Link} from 'react-router-dom';
+// import Cards from "./Cards";
 import { urlFor } from "../lib/client";
-import ReactLoading from "react-loading";
+// import ReactLoading from "react-loading";
 import { useDispatch, useSelector } from "react-redux";
 import { add } from "../store/cartSlice";
 // import {
@@ -49,6 +50,7 @@ const CardBanner = ({ products }) => {
                 <div key={product._id}>
                   {/* <Cards product={product} image={urlFor(product.image).url()} price={product.price} name={product.name}/> */}
                   <div className="md:w-[200px] md:h-[230px] border-[0.1px] border-slate-300">
+                  <Link to={`/product/${product._id}`}>
                     <div className="px-auto mx-auto my-[1rem] w-[6rem] h-[6rem]">
                       <img
                         className="py-1 w-4/6"
@@ -56,12 +58,15 @@ const CardBanner = ({ products }) => {
                         alt="watch"
                       />
                     </div>
+
                     <p className="mx-4 text-[14px] leading-[19px] font-normal text-clip overflow-hidden">
                       {product.name}
                     </p>
                     <p className="mx-4 my-1 text-[13px] font-bold ">
                       Rs.{product.price}
                     </p>
+                    </Link>
+
                     <div className="flex items-center justify-content w-full relative py-1">
                       <button
                         onClick={() => addToCart(product)}
