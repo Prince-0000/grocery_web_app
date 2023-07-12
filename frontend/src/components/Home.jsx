@@ -4,7 +4,7 @@ import CategoryBanner from './CategoryBanner'
 import CardBanner from './CardBanner'
 import Footer from './Footer'
 import { urlFor } from '../lib/client'
-import { getBhujia, getProduct } from '../store/productSlice';
+import { getBeverage, getProduct } from '../store/productSlice';
 import { getBiscuits } from '../store/productSlice'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -18,8 +18,8 @@ const dispatch = useDispatch();
   
 useEffect(()=>{
   dispatch(getProduct());
-  dispatch(getBiscuits());
-  dispatch(getBhujia());
+  dispatch(getBiscuits())
+  dispatch(getBeverage());
   // dispatch(getProduct());
 },[])
 
@@ -27,8 +27,8 @@ useEffect(()=>{
     <div>
       <CategoryBanner />
       <HeroBanner />
-      <CardBanner products = {databi}/>
-      <CardBanner products = {databh}/>
+      <CardBanner head={"Biscuits & Namkeen"} products = {databi}/>
+      <CardBanner head={"Tea and Coffee"} products = {databh}/>
       {/* <CardBanner /> */}
       {/* <CardBanner /> */}
       <Footer />

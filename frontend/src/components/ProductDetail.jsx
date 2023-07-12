@@ -21,7 +21,7 @@ const ProductDetail = () => {
 
   useEffect(() => {
     const findProduct = () => {
-      const foundProduct = data.find((item) => item._id === productId);
+      const foundProduct = data.find((item) => (item._id === productId));
       if (foundProduct) {
         setProduct(foundProduct);
       }

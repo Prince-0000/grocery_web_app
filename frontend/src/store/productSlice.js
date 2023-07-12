@@ -44,14 +44,14 @@ const productSlice = createSlice({
         .addCase(getBiscuits.rejected,(state,action)=>{
             state.status='error'
         })
-        .addCase(getBhujia.pending,(state,action)=>{
+        .addCase(getBeverage.pending,(state,action)=>{
             state.status = 'pending'
         })
-        .addCase(getBhujia.fulfilled,(state,action)=>{
+        .addCase(getBeverage.fulfilled,(state,action)=>{
             state.databh = action.payload;
             state.status='fetched'
         })
-        .addCase(getBhujia.rejected,(state,action)=>{
+        .addCase(getBeverage.rejected,(state,action)=>{
             state.status='error'
         })
     }
@@ -67,15 +67,15 @@ export const getProduct=createAsyncThunk('product/get',async ()=>{
 })
 
 export const getBiscuits=createAsyncThunk('biscuit/get',async ()=>{
-    const query = '*[type == "biscuit"]';
+    const query = '*[type == "snack"]';
     const response = await client.fetch(query);
     console.log("Biscuits",response);
     return response;
 })
-export const getBhujia=createAsyncThunk('bhujia/get',async ()=>{
-    const query = '*[type == "bhujia"]';
+export const getBeverage=createAsyncThunk('beverage/get',async ()=>{
+    const query = '*[type == "drink"]';
     const response = await client.fetch(query);
-    console.log("Bhujia",response);
+    console.log("Beverage",response);
     return response;
 })
 

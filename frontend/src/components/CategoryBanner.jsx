@@ -41,12 +41,10 @@ const CategoryBanner = () => {
           <Link to={`category/${card.type}`}>
             {/* <CategoryCards name={card.name} image={urlFor(card.image).url()}/> */}
             <div className="flex items-center flex-col w-[100px] h-full mx-4 cursor-pointer">
-              <div className="pt-[7px] w-3/5">
-                <img className="" src={urlFor(card.image).url()} alt="Speaker" />
+              <div className="px-auto mx-auto my-[1rem] w-[3rem] h-[3rem]  flex items-center justify-center">
+                <img className="max-w-full max-h-full" src={urlFor(card.image).url()} alt="Speaker" />
               </div>
-              <div className="mt-3">
                 <p className="text-[12px] leading-none font-medium">{card.name}</p>
-              </div>
             </div>
           </Link>
         </div>
