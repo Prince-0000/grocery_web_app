@@ -1,6 +1,4 @@
 import React from 'react'
-import Speaker from '../assests/head.png';
-import { urlFor } from '../lib/client';
 
 const CategoryCards = ({name, image}) => {
 

@@ -1,35 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import { RxDotFilled } from "react-icons/rx";
 // import Banner1 from "../assests/banner1.png";
 // import Banner2 from "../assests/banner2.png";
 // import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { client, urlFor } from "../lib/client";
+import { urlFor } from "../lib/client";
 import {useDispatch,useSelector} from 'react-redux'
-import { getProducts } from "../store/productSlice";
+import { getBanners } from "../store/bannerSlice";
 
 
 const HeroBanner = () => {
-  const [state, setState] = useState([]);
-
-  const {data}=useSelector(state=>state.products)
+  const {data}=useSelector(state=>state.banners)
 
   console.log(data);
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const query = '*[_type == "banner"]';
-  //       const response = await client.fetch(query);
-        
-  //       setState(response);
-  //     } catch (error) {
-  //       console.error("Error fetching banner data:", error);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, []);
 
   // ------- redux ---------//
 
@@ -38,31 +22,20 @@ const HeroBanner = () => {
 
   useEffect(()=>{
 
-      dispatch(getProducts())
+      dispatch(getBanners())
   },[])
 
 
   // ------//
+ 
+  if(data.length===0) return <div>Loading...</div>
 
-  // console.log(state)
-
-  
-  if(state.length===0){
-      return <div>Loading</div>
-  }
   // const slides = [
   //   {
-  //     // url:urlFor(state[0].image).url()
-
-  //     url: Banner1,
-  //     // url:''
+  //     url:urlFor(data[1].image).url()
   //   },
   //   {
-  //     // url:urlFor(state[1].image).url()
-  //     url: Banner2,
-  //   },
-  //   {
-  //     url: "https://images.unsplash.com/photo-1684870500871-2b0d6cc5afa1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1077&q=80",
+  //     url:urlFor(data[0].image).url()
   //   },
   // ];
   // const [currentIndex, setCurrentIndex] = useState(0);
@@ -76,13 +49,11 @@ const HeroBanner = () => {
     // const newIndex = isLastSlide ? 0 : currentIndex + 1;
     // setCurrentIndex(newIndex);
   };
-  // console.log(banner)
-  console.log(state);
   return (
     <>
       <div className="max-w-[1400px] md:h-[300px] sm:h-[200px] h-[150px] w-[100%] m-auto mt-4 px-4 relative group ">
         <div
-          style={{ backgroundImage: `url(${urlFor(state[0].image).url()})` }}
+          style={{ backgroundImage: `url(${urlFor(data[2].image).url()})`}}
           className="w-full h-full rounded-2xl bg-center bg-cover duration-500"
         ></div>
         <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
