@@ -1,7 +1,9 @@
 import CartCard from "./CartCard";
 import { useSelector } from "react-redux";
 import { urlFor } from "../lib/client";
-import getStripe from "../getStripe";
+import getStripe from "../lib/getStripe";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Cart = () => {
   const products = useSelector((state) => state.cart);
@@ -17,8 +19,10 @@ const Cart = () => {
     });
     if(response.statusCode === 500) return;
     const data = await response.json();
-    // toast.loading('Redirecting...');
-    if(data.length===0) return <div>Redirecting...</div>
+    toast.info('Information Notification !', {
+      position: toast.POSITION.TOP_CENTER
+  });
+    // if(data.length===0) return <div>Redirecting...</div>
     stripe.redirectToCheckout({sessionId : data.id});
 }
 

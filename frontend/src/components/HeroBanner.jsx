@@ -28,7 +28,7 @@ const HeroBanner = () => {
 
   // ------//
  
-  if(data.length===0) return <div>Loading...</div>
+  if(data.length===0) return ''
 
   // const slides = [
   //   {

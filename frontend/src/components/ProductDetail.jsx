@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
 import { urlFor } from "../lib/client";
 import { useDispatch } from "react-redux";
 import { incQty, decQty, add } from "../store/cartSlice";
+import { FaSpinner } from "react-icons/fa";
 
 const ProductDetail = () => {
   const dispatch = useDispatch();
@@ -32,7 +32,9 @@ const ProductDetail = () => {
   }, [data, productId]);
 
   if (isLoading || data.length === 0) {
-    return <div>Loading...</div>;
+    return <div className="flex items-center justify-center h-screen">
+    <FaSpinner className="animate-spin text-4xl text-gray-500" />
+  </div>
   }
 
   const increment = (id) => {
@@ -50,10 +52,11 @@ const ProductDetail = () => {
   };
   console.log("product detail", product);
   return (
+    <div className="flex">
     <div className="mx-5  w-[95%] h-full">
       <div className="relative m-10 py-10">
-        <div className="border rounded-xl border-slate-300 w-[20rem] h-[20rem]">
-          <img src={urlFor(product.image).url()} alt="watch" />
+        <div className="flex rounded-xl w-[20rem] h-[20rem] items-center justify-center">
+          <img className='m-auto border border-slate-200 bg-transparent max-w-full max-h-full' src={urlFor(product.image).url()} alt="watch" />
         </div>
         <div className="absolute top-10 left-[22rem] text-base">
           <p className="text-2xl font-medium">{product.name}</p>
@@ -111,6 +114,7 @@ const ProductDetail = () => {
           </button>
         </div>
       </div>
+    </div>
     </div>
   );
 };

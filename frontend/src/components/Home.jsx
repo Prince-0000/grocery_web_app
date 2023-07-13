@@ -3,7 +3,6 @@ import HeroBanner from './HeroBanner'
 import CategoryBanner from './CategoryBanner'
 import CardBanner from './CardBanner'
 import Footer from './Footer'
-import { urlFor } from '../lib/client'
 import { getBeverage, getProduct } from '../store/productSlice';
 import { getBiscuits } from '../store/productSlice'
 import { useDispatch, useSelector } from 'react-redux'
@@ -21,7 +20,7 @@ useEffect(()=>{
   dispatch(getBiscuits())
   dispatch(getBeverage());
   // dispatch(getProduct());
-},[])
+},[dispatch])
 
   return (
     <div>

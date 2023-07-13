@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 // import Cards from "./Cards";
 import { urlFor } from "../lib/client";
 // import ReactLoading from "react-loading";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { add } from "../store/cartSlice";
+import { FaSpinner } from "react-icons/fa";
 // import {
 //   BsFillArrowLeftSquareFill,
 //   BsFillArrowRightSquareFill,
@@ -28,7 +29,9 @@ const CardBanner = ({ head, products }) => {
     dispatch(add(product));
   };
 
-  if (products.length === 0) return <h1>Loading</h1>;
+  if (products.length === 0) return <div className="flex items-center justify-center h-screen">
+  <FaSpinner className="animate-spin text-4xl text-gray-500" />
+</div>
 
   return (
     <>
@@ -81,7 +84,7 @@ const CardBanner = ({ head, products }) => {
                       </div>
                     </div>
                   ) : (
-                    <div>h</div>
+                    <></>
                   )}
                 </div>
               ))}
