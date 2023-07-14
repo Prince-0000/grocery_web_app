@@ -1,7 +1,8 @@
 const express = require("express");
+require('dotenv').config();
 var cors = require("cors");
 const stripe = require("stripe")(
-  "sk_test_51MG0R4SFPvtwuestMh5neMdGWw6JSzmAJvw14ZxSkcww6FV1GHICVniq3X57QqdRKf3JBLlvKdhMyUW2KO2bWJPX00sQummVtg"
+  process.env.STRIPE_SECRET_KEY
 );
 
 const app = express();
@@ -19,8 +20,8 @@ app.post("/checkout", async (req, res) => {
     billing_address_collection: "required",
     // shipping_addresss_collection:'required',
     shipping_options: [
-      { shipping_rate: "shr_1MG0weSFPvtwuestkve2ZMbW" },
-      { shipping_rate: "shr_1MG10xSFPvtwuest8b16qqSu" },
+      { shipping_rate: process.env.STRIPE_SHIPPING_RATE_1 },
+      { shipping_rate: process.env.STRIPE_SHIPPING_RATE_2 },
     ],
     invoice_creation: {
         enabled: true,
