@@ -12,6 +12,7 @@ import Cart from './components/Cart';
 import Success from './components/Success';
 import Cancel from './components/Cancel';
 import CategoryPage from './components/CategoryPage';
+import Search from './components/Search';
 
 function App() {
   const router = createBrowserRouter(createRoutesFromElements(
@@ -22,6 +23,7 @@ function App() {
       <Route path = '/success' element={<Success />} />
       <Route path = '/cancel' element={<Cancel />} />
       <Route path='/category/:productType' element={<CategoryPage />}/>
+      <Route path='/search' element={<Search />} />
     </Route>
   ))
   return (

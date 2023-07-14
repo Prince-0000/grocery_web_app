@@ -5,15 +5,18 @@ import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { useSelector } from "react-redux";
 import { FiShoppingCart } from "react-icons/fi";
 import { useAuth0 } from "@auth0/auth0-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Navbar = () => {
+  const navigate = useNavigate();
+  const [search,setSearch] = useState("");
+  console.log(search);
   const [nav, setNav] = useState(false);
   const handleNav = () => {
     setNav(!nav);
   };
 
   const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0();
-
+  const {data} = useSelector((state)=>state.products)
   const products = useSelector((state) => state.cart);
   const getTotalQuanity = () => {
     let total = 0;
@@ -23,6 +26,17 @@ const Navbar = () => {
     });
     return total;
   };
+  const handleSearch =  (event) => {
+    if (event.key === "Enter") {
+      const filteredProducts = data.filter((product) =>
+        product.name.toLowerCase().includes(search.toLowerCase()) ||
+        product.type.toLowerCase().includes(search.toLowerCase())
+      );
+      console.log("Filter Products",filteredProducts)
+      navigate('/search', { state: { products: filteredProducts } });
+    }
+  };
+
 
   return (
     <div className="text-white flex justify-between items-center w-full bg-green-600 h-[80px] mx-auto px-[50px] p-4">
@@ -32,7 +46,10 @@ const Navbar = () => {
       <input
         type="text"
         placeholder="Search items"
-        className="mr-[50px] h-[35px] placeholder:pl-4 placeholder:text-base md:placeholder:text-lg text:border rounded-md text:border-solid block w-full text-xl text-slate-500"
+        className="mr-[50px] h-[35px] placeholder:pl-4 placeholder:text-base md:placeholder:text-lg text:border rounded-md text:border-solid block w-full text-base text-slate-500"
+        value={search}
+        onChange={(e)=>setSearch(e.target.value)}
+        onKeyDown={handleSearch}
       ></input>
       <ul className="hidden md:flex text-base font-normal">
         <Link to="/" className="p-4 px-5">
