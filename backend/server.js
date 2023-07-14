@@ -1,9 +1,7 @@
 const express = require("express");
-require('dotenv').config();
 var cors = require("cors");
-const stripe = require("stripe")(
-  process.env.STRIPE_SECRET_KEY
-);
+require('dotenv').config()
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 const app = express();
 app.use(cors());
@@ -53,6 +51,6 @@ app.post("/checkout", async (req, res) => {
   });
   res.status(200).json(session);
 });
-app.listen(process.env.PORT || 4000, () => {
+app.listen(4000, () => {
   console.log("listening to port 4000");
 });
