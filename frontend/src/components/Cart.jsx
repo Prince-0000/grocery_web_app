@@ -20,7 +20,7 @@ const Cart = () => {
     if(response.statusCode === 500) return;
     const data = await response.json();
     toast.info('Information Notification !', {
-      position: toast.POSITION.TOP_CENTER
+      position: toast.POSITION.BOTTOM_CENTER
   });
     // if(data.length===0) return <div>Redirecting...</div>
     stripe.redirectToCheckout({sessionId : data.id});

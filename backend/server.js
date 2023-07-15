@@ -1,10 +1,13 @@
 const express = require("express");
-var cors = require("cors");
+const cors = require("cors");
 require('dotenv').config()
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: "https://dukaann.vercel.app/"
+}));
+
 app.use(express.static("public"));
 app.use(express.json());
 
