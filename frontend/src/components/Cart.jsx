@@ -18,7 +18,7 @@ const Cart = () => {
     });
     if(response.statusCode === 500) return;
     const data = await response.json();
-    if (products.length === 0) return <div className="flex items-center justify-center h-screen">
+    if (data.length===0) return <div className="flex items-center justify-center h-screen">
     <FaSpinner className="animate-spin text-4xl text-gray-500" />
   </div>
   
