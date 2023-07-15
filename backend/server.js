@@ -4,13 +4,7 @@ require('dotenv').config()
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 const app = express();
-app.use(cors({
-  origin: "https://dukaan-prince-0000.vercel.app/checkout"
-}));
-// app.use(cors({
-//   origin: "https://dukaann.vercel.app/"
-// }));
-
+app.use(cors());
 app.use(express.static("public"));
 app.use(express.json());
 
@@ -57,6 +51,6 @@ app.post("/checkout", async (req, res) => {
   });
   res.status(200).json(session);
 });
-app.listen(4000, () => {
-  console.log("listening to port 4000");
-});
+// app.listen(4000, () => {
+//   console.log("listening to port 4000");
+// });
