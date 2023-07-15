@@ -7,7 +7,7 @@ const app = express();
 // app.use(cors());
 app.use(cors({
   origin: "https://dukaann.vercel.app"
-}));
+})); add
 app.use(express.static("public"));
 app.use(express.json());
 
@@ -57,4 +57,4 @@ app.post("/checkout", async (req, res) => {
 // app.listen(4000, () => {
 //   console.log("listening to port 4000");
 // });
-module.exports=app;
+module.exports=app; 

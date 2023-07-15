@@ -10,6 +10,7 @@ const Cart = () => {
     const stripe = await getStripe();
 
     const response = await fetch('https://dukaan-prince-0000.vercel.app/checkout', {
+      // const response = await fetch('http://localhost:4000/checkout', {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
@@ -18,11 +19,6 @@ const Cart = () => {
     });
     if(response.statusCode === 500) return;
     const data = await response.json();
-    if (data.length===0) return <div className="flex items-center justify-center h-screen">
-    <FaSpinner className="animate-spin text-4xl text-gray-500" />
-  </div>
-  
-    // if(data.length===0) return <div>Redirecting...</div>
     stripe.redirectToCheckout({sessionId : data.id});
 }
 

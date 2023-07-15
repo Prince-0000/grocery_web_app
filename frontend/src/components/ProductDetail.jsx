@@ -36,13 +36,6 @@ const ProductDetail = () => {
     <FaSpinner className="animate-spin text-4xl text-gray-500" />
   </div>
   }
-
-  const increment = (id) => {
-    dispatch(incQty(id));
-  };
-  const decrement = (id) => {
-    dispatch(decQty(id));
-  };
   const addToCart = (product) => {
     dispatch(add(product));
   };
@@ -71,8 +64,36 @@ const ProductDetail = () => {
 
           <p className="py-3 text-base">{product.details}</p>
           <p className="text-[18px] font-medium">Rs.{product.price}</p>
+        </div>
+        <div className="text-[15px] leading-[25px] absolute bottom-[6rem] left-[22rem]">
+          <button
+            onClick={() => addToCart(product)}
+            className="mr-5 px-[25px] py-[2px] border-[1.5px] border-green-500 "
+          >
+            Add to Cart
+          </button>
+          <button
+            onClick={() => handleBuyNow(product)}
+            className="ml-5 px-[35px] py-[3px] bg-green-500 text-white font-medium"
+          >
+            Buy Now
+          </button>
+        </div>
+      </div>
+    </div>
+    </div>
+  );
+};
 
-          <div className="py-6 flex flex-row">
+export default ProductDetail;
+
+// const increment = (id) => {
+//     dispatch(incQty(id));
+//   };
+//   const decrement = (id) => {
+//     dispatch(decQty(id));
+//   };
+{/* <div className="py-6 flex flex-row">
             <div className="text-sm">
               <p>Quantity</p>
             </div>
@@ -97,26 +118,4 @@ const ProductDetail = () => {
                 +
               </button>
             </div>
-          </div>
-        </div>
-        <div className="text-[15px] leading-[25px] absolute bottom-[6rem] left-[22rem]">
-          <button
-            onClick={() => addToCart(product)}
-            className="mr-5 px-[25px] py-[2px] border-[1.5px] border-green-500 "
-          >
-            Add to Cart
-          </button>
-          <button
-            onClick={() => handleBuyNow(product)}
-            className="ml-5 px-[35px] py-[3px] bg-green-500 text-white font-medium"
-          >
-            Buy Now
-          </button>
-        </div>
-      </div>
-    </div>
-    </div>
-  );
-};
-
-export default ProductDetail;
+          </div> */}
