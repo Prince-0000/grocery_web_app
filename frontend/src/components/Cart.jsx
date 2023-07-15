@@ -10,7 +10,7 @@ const Cart = () => {
   const handleCheckout = async () => {
     const stripe = await getStripe();
 
-    const response = await fetch('http://localhost:4000/checkout', {
+    const response = await fetch('https://dukaan-prince-0000.vercel.app/checkout', {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
