@@ -51,8 +51,6 @@ app.post("/checkout", async (req, res) => {
   });
   res.status(200).json(session);
 });
-app.listen(8080,() => {
-  console.log("listening to port 8080");
+app.listen(4000, () => {
+  console.log("listening to port 4000");
 });
-
-module.exports=app;
