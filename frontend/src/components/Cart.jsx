@@ -2,8 +2,7 @@ import CartCard from "./CartCard";
 import { useSelector } from "react-redux";
 import { urlFor } from "../lib/client";
 import getStripe from "../lib/getStripe";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { FaSpinner } from "react-icons/fa";
 
 const Cart = () => {
   const products = useSelector((state) => state.cart);
@@ -19,9 +18,10 @@ const Cart = () => {
     });
     if(response.statusCode === 500) return;
     const data = await response.json();
-    toast.info('Information Notification !', {
-      position: toast.POSITION.BOTTOM_CENTER
-  });
+    if (products.length === 0) return <div className="flex items-center justify-center h-screen">
+    <FaSpinner className="animate-spin text-4xl text-gray-500" />
+  </div>
+  
     // if(data.length===0) return <div>Redirecting...</div>
     stripe.redirectToCheckout({sessionId : data.id});
 }
@@ -90,7 +90,6 @@ const Cart = () => {
           <button onClick={handleCheckout} className="rounded-lg bg-green-500 text-white text-[17px] leading-8 w-[15rem] h-9">
             Proceed to Checkout
           </button>
-          <ToastContainer />
           </div>
           
       </div>
