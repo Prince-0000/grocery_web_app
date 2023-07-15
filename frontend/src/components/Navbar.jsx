@@ -46,7 +46,7 @@ const Navbar = () => {
       <input
         type="text"
         placeholder="Search items"
-        className="mr-[50px] h-[35px] placeholder:pl-4 placeholder:text-base md:placeholder:text-lg text:border rounded-md text:border-solid block w-full text-base text-slate-500"
+        className="mr-[50px] h-[35px] pl-4 placeholder:pl- placeholder:text-base md:placeholder:text-lg text:border rounded-md text:border-solid block w-full text-base text-slate-500"
         value={search}
         onChange={(e)=>setSearch(e.target.value)}
         onKeyDown={handleSearch}
