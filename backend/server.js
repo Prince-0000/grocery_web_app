@@ -54,3 +54,5 @@ app.post("/checkout", async (req, res) => {
 app.listen(process.env.PORT || 4000, () => {
   console.log("listening to port 4000");
 });
+
+module.exports=app;
