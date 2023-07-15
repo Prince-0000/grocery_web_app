@@ -5,8 +5,11 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 const app = express();
 app.use(cors({
-  origin: "https://dukaann.vercel.app/"
+  origin: "https://dukaan-prince-0000.vercel.app/checkout"
 }));
+// app.use(cors({
+//   origin: "https://dukaann.vercel.app/"
+// }));
 
 app.use(express.static("public"));
 app.use(express.json());
