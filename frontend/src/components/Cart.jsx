@@ -2,7 +2,7 @@ import CartCard from "./CartCard";
 import { useSelector } from "react-redux";
 import { urlFor } from "../lib/client";
 import getStripe from "../lib/getStripe";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Cart = () => {
@@ -20,7 +20,7 @@ const Cart = () => {
     if(response.statusCode === 500) return;
     const data = await response.json();
     toast.info('Information Notification !', {
-      position: toast.POSITION.BOTTOM_CENTER
+      position: toast.POSITION.TOP_CENTER
   });
     // if(data.length===0) return <div>Redirecting...</div>
     stripe.redirectToCheckout({sessionId : data.id});
@@ -90,6 +90,7 @@ const Cart = () => {
           <button onClick={handleCheckout} className="rounded-lg bg-green-500 text-white text-[17px] leading-8 w-[15rem] h-9">
             Proceed to Checkout
           </button>
+          <ToastContainer />
           </div>
           
       </div>
