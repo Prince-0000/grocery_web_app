@@ -7,7 +7,7 @@ const app = express();
 // app.use(cors());
 app.use(cors({
   origin: "https://dukaann.vercel.app"
-})); add
+}));
 app.use(express.static("public"));
 app.use(express.json());
 
