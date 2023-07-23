@@ -35,14 +35,14 @@ const CardBanner = ({ head, products }) => {
 
   return (
     <>
-      <div className="bg-white md:my-[30px] sm:my-[20px] my-[10px] md:mx-4 sm:mx-3 mx-2">
-        <div className="pt-2 md:pl-[20px] sm:pl-[18px] pl-[10px]">
-          <h1 className="py-3 md:text-2xl sm:text-xl text-sm font-medium">
+      <div className="bg-white md:my-[30px] sm:my-[20px] my-[8px] md:mx-4 sm:mx-3 mx-2 h-fit">
+        <div className="sm:pt-2 pt-1 md:pl-[20px] sm:pl-[18px] pl-[10px]">
+          <h1 className="md:py-3 sm:py-2 py-1 md:text-2xl sm:text-xl text-sm font-medium">
             {head}
           </h1>
           <div
             id="slider"
-            className="pb-5 w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth no-scrollbar"
+            className="md:pb-5 sm:pb-4 pb-3 w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth no-scrollbar"
           >
             {/* <div className=" opacity-50 hover:opacity-100 absolute bottom-[1px] left-5 -translate-x-0 translate-y-[-50%] cursor-pointer bg-white">
               <BsFillArrowLeftSquareFill onClick={slideLeft} size={30} />
