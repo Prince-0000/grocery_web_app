@@ -62,13 +62,13 @@ const CategoryPage = () => {
 
   return (
     <div className="w-[97%] bg-white h-auto mx-auto my-3">
-      <h1 className="mx-4 pt-3 font-medium text-xl">
+      <h1 className="mx-4 pt-3 font-medium sm:text-xl text-base">
         All products of category
       </h1>
-      <div className="flex my-3">
+      <div className="flex my-3 sm:text-base text-sm">
         <button
           onClick={() => setSortingOrder("lowToHigh")}
-          className={`ml-7 border border-slate-300 px-4 rounded ${
+          className={`md:ml-7 sm:ml-6 ml-[1.3rem] border border-slate-300 px-4 rounded ${
             sortingOrder === "lowToHigh" ? "bg-gray-200" : ""
           }`}
         >
@@ -76,33 +76,33 @@ const CategoryPage = () => {
         </button>
         <button
           onClick={() => setSortingOrder("highToLow")}
-          className={`ml-7 border border-slate-300 px-4 rounded ${
+          className={`md:ml-7 sm:ml-6 ml-5 border border-slate-300 px-4 rounded ${
             sortingOrder === "highToLow" ? "bg-gray-200" : ""
           }`}
         >
           High to Low
         </button>
       </div>
-      <div className="mx-7 py-5 grid grid-cols-5 auto-cols-max gap-[3rem]">
+      <div className="md:mx-7 sm:mx-5 mx-3 ml-7 md:py-5 sm:py-4 py-2 grid md:grid-cols-5 sm:grid-cols-3 grid-cols-2 auto-cols-max md:gap-[3rem] sm:gap-[2rem] gap-[1rem]">
         {productList.map((product) => (
           <div
             key={product._id}
-            className="w-[11rem] bg-slate-20 border border-slate-200 h-[13.5rem]"
+            className="md:w-[11rem] sm:w-[10rem] w-[9rem] bg-slate-20 border border-slate-200 md:h-[14rem] sm:h-[13rem] h-[11rem]"
           >
             <Link to={`/product/${product._id}`}>
-              <div className="px-auto mx-auto my-[1rem] w-[6rem] h-[6rem] max-w-[6rem] max-h-[6rem] flex items-center justify-center">
+              <div className="px-auto mx-auto my-[1rem] w-[6rem] md:h-[6rem] sm:max-w-[6rem] sm:w-[5rem] sm:h-[5rem] w-[3.5rem] h-[3.5rem] max-h-[6rem] flex items-center justify-center">
                 <img
                   className="max-w-full max-h-full"
                   src={urlFor(product.image).url()}
                   alt="speaker"
                 />
               </div>
-              <p className="text-sm mx-2 mt-1">{product.name}</p>
-              <p className="text-sm my-1 mx-2 font-bold">Rs.{product.price}</p>
+              <p className="truncate sm:text-sm text-xs md:mx-2 mx-1 mt-1">{product.name}</p>
+              <p className="sm:text-sm text-xs my-1 sm:mx-2 mx-1 font-bold">Rs.{product.price}</p>
             </Link>
             <button
               onClick={() => addToCart(product)}
-              className="mt-2 mb-2 ml-3 border-[0.5px] w-10/12 text-[15px] leading-[22px] rounded-full hover:bg-gray-100 active:bg-gray-200"
+              className="mt-2 mb-2 ml-3 border-[0.5px] w-10/12 md:text-[15px] sm:text-[14px] text-[13px] md:leading-[22px] sm:leading-[21px] leading-[20px] rounded-full hover:bg-gray-100 active:bg-gray-200"
             >
               Add to Cart
             </button>

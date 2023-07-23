@@ -54,9 +54,9 @@ const CardBanner = ({ head, products }) => {
                   {product.price > 5 ? (
                     <div>
                       {/* <Cards product={product} image={urlFor(product.image).url()} price={product.price} name={product.name}/> */}
-                      <div className="sm:w-[200px] sm:h-[230px] w-[120px] h-[138px] border-[0.1px] border-slate-300">
+                      <div className="sm:w-[200px] sm:h-[230px] w-[120px] h-[145px] border-[0.1px] border-slate-300">
                         <Link to={`/product/${product._id}`}>
-                          <div className="px-auto mx-auto sm:my-[1rem] my-[0.5rem] sm:w-[6rem] sm:h-[6rem] w-[3rem] h-[3rem] max-w-[6rem] max-h-[6rem] flex items-center justify-center">
+                          <div className="px-auto mx-auto sm:my-[1rem] my-[0.5rem] sm:w-[6rem] sm:h-[6rem] w-[3.2rem] h-[3.2rem] max-w-[6rem] max-h-[6rem] flex items-center justify-center">
                             <img
                               className="max-w-full max-h-full"
                               src={urlFor(product.image).url()}
@@ -64,10 +64,10 @@ const CardBanner = ({ head, products }) => {
                             />
                           </div>
 
-                          <p className="md:mx-4 sm:mx-3 mx-2 sm:text-[14px] text-[10px] md:leading-[19px] font-normal text-clip overflow-hidden">
+                          <p className="md:mx-4 sm:mx-3 mx-2 sm:text-[14px] text-[11px] md:leading-[19px] font-normal text-clip overflow-hidden">
                             {product.name}
                           </p>
-                          <p className="md:mx-4 sm:mx-3 mx-2 my-1 sm:text-[13px] text-[9px] font-bold ">
+                          <p className="md:mx-4 sm:mx-3 mx-2 my-1 sm:text-[13px] text-[10px] font-bold ">
                             Rs.{product.price}
                           </p>
                         </Link>
