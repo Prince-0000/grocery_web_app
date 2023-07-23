@@ -16,6 +16,7 @@ const Navbar = () => {
   };
 
   const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0();
+  console.log("user",user);
   const {data} = useSelector((state)=>state.products)
   const products = useSelector((state) => state.cart);
   const getTotalQuanity = () => {
@@ -39,14 +40,14 @@ const Navbar = () => {
 
 
   return (
-    <div className="text-white flex justify-between items-center w-full bg-green-600 h-[80px] mx-auto px-[50px] p-4">
-      <a href="/" alt="home" className="w-full md:text-3xl text-2xl font-bold">
+    <div className="text-white flex justify-between items-center w-full bg-green-600 md:h-[80px] sm:h-[70px] h-[60px]  mx-auto md:px-[50px] sm:px-[40px] px-[20px] p-4">
+      <a href="/" alt="home" className="md:text-3xl sm:text-2xl text-xl font-bold">
         Dukaan
       </a>
       <input
         type="text"
         placeholder="Search items"
-        className="mr-[50px] h-[35px] pl-4 placeholder:pl- placeholder:text-base md:placeholder:text-lg text:border rounded-md text:border-solid block w-full text-base text-slate-500"
+        className="h-[35px] pl-4 placeholder:pl- placeholder:text-base md:placeholder:text-lg text:border rounded-md text:border-solid block w-3/6 text-base text-slate-500"
         value={search}
         onChange={(e)=>setSearch(e.target.value)}
         onKeyDown={handleSearch}
@@ -100,22 +101,58 @@ const Navbar = () => {
       <div
         className={
           nav
-            ? "bg-blue-500 fixed z-50 left-0 top-0 w-[60%] h-full border-r-gray-900 ease-in-out duration-500"
+            ? "bg-green-600 fixed z-50 left-0 top-0 w-[60%] h-full border-r-gray-900 ease-in-out duration-500"
             : "fixed left-[-100%]"
         }
       >
         <h1 className="w-full md:text-3xl text-2xl font-bold text-white m-4">
-          Retail
+          Dukaan
         </h1>
-        <ul className="md:flex text-base font-normal">
-          <li className="border-b border-gray-200 p-4 px-5">Home</li>
-          <li className="border-b border-gray-200 p-4 px-5">Categories</li>
-          <button
-            className="mx-5 text-black my-[18px] bg-white w-[80px] h-[35px] font-medium"
+        <ul className="flex flex-col text-base font-normal text-white">
+          <Link onClick={handleNav} to='/' className="border-b border-gray-200 p-4 px-5 cursor-pointer">Home</Link>
+
+          {/* <button
+            className="mx-4 text-black my-[18px] bg-white w-[80px] h-[35px] font-medium"
             onClick={() => loginWithRedirect()}
           >
             Login
-          </button>
+          </button> */}
+          <Link to="/cart">
+          <div className="relative">
+            <button className="m-5 my-5">
+              <FiShoppingCart size={20} />
+            </button>
+            <BsFillCircleFill className="absolute top-3 left-8 text-red-500 border-xl" />
+            <p className="absolute top-3 left-9 text-xs">
+              {getTotalQuanity()}
+            </p>
+          </div>
+        </Link>
+          {isAuthenticated === true ? (
+          <div className="relative">
+            <button
+              className="m-4 text-black bg-white w-[90px] h-[35px] font-medium"
+              onClick={() => logout()}
+            >
+              Logout
+            </button>
+            <div className="flex mx-auto my-[10px] ml-3">
+            <img src={user.picture} alt="Profile" className="mx-auto my-[10px] ml-3 absolute top-1 right-16" />
+            </div>
+          </div>
+        ) : (
+          <div className="relative">
+            <button
+              className="m-4 text-black bg-white w-[90px] h-[35px] font-medium"
+              onClick={() => loginWithRedirect()}
+            >
+              Login
+            </button>
+            <div className="mx-auto my-[10px] ml-3 absolute top-1 right-16">
+              <FaUserCircle size={35} />
+            </div>
+          </div>
+        )}
         </ul>
       </div>
     </div>

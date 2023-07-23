@@ -1,9 +1,3 @@
-// import HeroBanner from "./components/HeroBanner";
-// import CardBanner from "./components/CardBanner";
-// import CategoryBanner from "./components/CategoryBanner";
-// import Footer from "./components/Footer";
-// import Navbar from "./components/Navbar";
-
 import {createBrowserRouter, createRoutesFromElements, RouterProvider, Route} from 'react-router-dom';
 import RouteLayout from "./components/RouteLayout";
 import Home from "./components/Home";

@@ -51,24 +51,24 @@ const HeroBanner = () => {
   };
   return (
     <>
-      <div className="max-w-[1400px] md:h-[300px] sm:h-[200px] h-[150px] w-[100%] m-auto mt-4 px-4 relative group ">
+      <div className="max-w-[1400px] md:h-[300px] sm:h-[200px] h-[130px] w-[100%] m-auto md:mt-4 sm:mt-3 mt-2 md:px-4 sm:px-3 px-2 relative group">
         <div
           style={{ backgroundImage: `url(${urlFor(data[2].image).url()})`}}
           className="w-full h-full rounded-2xl bg-center bg-cover duration-500"
         ></div>
-        <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
+        {/* <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
           <BsChevronCompactLeft onClick={prevSlide} size={20} />
         </div>
         <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
           <BsChevronCompactRight onClick={nextSlide} size={20} />
-        </div>
-        <div className="flex justify-center top-4 py-1 text-gray-300 ">
+        </div> */}
+        {/* <div className="flex justify-center top-4 py-1 text-gray-300 "> */}
           {/* {slides.map((slide, index) => ( */}
-            <div  className="text-xl">
+            {/* <div  className="text-xl">
               <RxDotFilled />
-            </div>
+            </div> */}
           {/* ))} */}
-        </div>
+        {/* </div> */}
       </div>
     </>
   );

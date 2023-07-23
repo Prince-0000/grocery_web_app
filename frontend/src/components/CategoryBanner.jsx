@@ -19,7 +19,7 @@ const CategoryBanner = () => {
 
   if (data.length === 0) return '';
   return (
-    <div className="grid grid-flow-col auto-cols-min bg-white h-[100px] my-4 mx-4">
+    <div id="slider" className="grid grid-flow-col auto-cols-min bg-white md:h-[100px] sm:h-[80px] h-[70px] sm:my-4 sm:mx-4 m-2 overflow-x-scroll scroll whitespace-nowrap scroll-smooth no-scrollbar">
       {data.map((card) => (
         <div key={card._id}>
       <Link to={`category/${card.type}`}>

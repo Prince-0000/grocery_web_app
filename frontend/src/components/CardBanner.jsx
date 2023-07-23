@@ -35,9 +35,9 @@ const CardBanner = ({ head, products }) => {
 
   return (
     <>
-      <div className="bg-white my-[30px] mx-4">
-        <div className="pt-2 pl-[20px]">
-          <h1 className="py-3 md:text-2xl sm:text-xl text-base font-medium">
+      <div className="bg-white md:my-[30px] sm:my-[20px] my-[10px] md:mx-4 sm:mx-3 mx-2">
+        <div className="pt-2 md:pl-[20px] sm:pl-[18px] pl-[10px]">
+          <h1 className="py-3 md:text-2xl sm:text-xl text-sm font-medium">
             {head}
           </h1>
           <div
@@ -48,15 +48,15 @@ const CardBanner = ({ head, products }) => {
               <BsFillArrowLeftSquareFill onClick={slideLeft} size={30} />
             </div> */}
 
-            <div className="flex grid grid-flow-col auto-cols-max gap-3 items-center">
+            <div className="flex grid grid-flow-col auto-cols-max sm:gap-2 gap-1 items-center">
               {products.map((product) => (
                 <div key={product._id}>
                   {product.price > 5 ? (
                     <div>
                       {/* <Cards product={product} image={urlFor(product.image).url()} price={product.price} name={product.name}/> */}
-                      <div className="md:w-[200px] md:h-[230px] border-[0.1px] border-slate-300">
+                      <div className="sm:w-[200px] sm:h-[230px] w-[120px] h-[138px] border-[0.1px] border-slate-300">
                         <Link to={`/product/${product._id}`}>
-                          <div className="px-auto mx-auto my-[1rem] w-[6rem] h-[6rem] max-w-[6rem] max-h-[6rem] flex items-center justify-center">
+                          <div className="px-auto mx-auto sm:my-[1rem] my-[0.5rem] sm:w-[6rem] sm:h-[6rem] w-[3rem] h-[3rem] max-w-[6rem] max-h-[6rem] flex items-center justify-center">
                             <img
                               className="max-w-full max-h-full"
                               src={urlFor(product.image).url()}
@@ -64,10 +64,10 @@ const CardBanner = ({ head, products }) => {
                             />
                           </div>
 
-                          <p className="mx-4 text-[14px] leading-[19px] font-normal text-clip overflow-hidden">
+                          <p className="md:mx-4 sm:mx-3 mx-2 sm:text-[14px] text-[10px] md:leading-[19px] font-normal text-clip overflow-hidden">
                             {product.name}
                           </p>
-                          <p className="mx-4 my-1 text-[13px] font-bold ">
+                          <p className="md:mx-4 sm:mx-3 mx-2 my-1 sm:text-[13px] text-[9px] font-bold ">
                             Rs.{product.price}
                           </p>
                         </Link>
@@ -76,7 +76,7 @@ const CardBanner = ({ head, products }) => {
                           <button
                             onClick={() => addToCart(product)}
                             type="button"
-                            className="ml-4 border-[0.5px] w-10/12 text-[15px] leading-[28px] rounded-full hover:bg-gray-100 active:bg-gray-200"
+                            className="md:ml-4 sm:ml-3 ml-2 border-[0.5px] w-10/12 md:text-[15px] sm:text-[13px] text-[11px] md:leading-[28px] sm:leading-[25px] leading-[20px] rounded-full hover:bg-gray-100 active:bg-gray-200"
                           >
                             Add to Cart
                           </button>
