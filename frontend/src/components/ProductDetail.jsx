@@ -4,7 +4,7 @@ import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { useSelector } from "react-redux";
 import { urlFor } from "../lib/client";
 import { useDispatch } from "react-redux";
-import { incQty, decQty, add } from "../store/cartSlice";
+import { add } from "../store/cartSlice";
 import { FaSpinner } from "react-icons/fa";
 
 const ProductDetail = () => {
@@ -46,15 +46,15 @@ const ProductDetail = () => {
   console.log("product detail", product);
   return (
     <div className="flex">
-    <div className="mx-5  w-[95%] h-full">
-      <div className="relative m-10 py-10">
-        <div className="flex rounded-xl w-[20rem] h-[20rem] items-center justify-center">
+    <div className="sm:ml-5 sm:w-full w-full h-full">
+      <div className="relative sm:m-10 sm:py-10 m-4 py-8">
+        <div className="flex rounded-xl md:w-[20rem] sm:w-[15rem] md:h-[20rem] sm:h-[15rem] w-[10rem] h-[10rem] items-center justify-center">
           <img className='m-auto border border-slate-200 bg-transparent max-w-full max-h-full' src={urlFor(product.image).url()} alt="watch" />
         </div>
-        <div className="absolute top-10 left-[22rem] text-base">
-          <p className="text-2xl font-medium">{product.name}</p>
+        <div className="absolute md:top-10 sm:top-7 top-4 md:left-[22rem] sm:left-[18rem] left-[11rem] sm:text-base text-sm w-ful">
+          <p className="md:text-2xl sm:text-xl text-base font-medium">{product.name}</p>
 
-          <div className="text-xs text-yellow-400 flex flex-cols pt-1">
+          <div className="sm:text-xs text-[10px] text-yellow-400 flex flex-cols pt-1">
             <AiFillStar />
             <AiFillStar />
             <AiFillStar />
@@ -62,19 +62,19 @@ const ProductDetail = () => {
             <AiOutlineStar />
           </div>
 
-          <p className="py-3 text-base">{product.details}</p>
-          <p className="text-[18px] font-medium">Rs.{product.price}</p>
+          <p className="sm:py-3 py-2 sm:text-base text-xs">{product.details}</p>
+          <p className="sm:text-[18px] text-[13.5px] font-medium">Rs.{product.price}</p>
         </div>
-        <div className="text-[15px] leading-[25px] absolute bottom-[6rem] left-[22rem]">
+        <div className="flex sm:flex-row flex-col sm:text-[15px] sm:leading-[25px] text-[12px] leading-[18px] absolute md:bottom-[6rem] md:left-[22rem] sm:bottom-[3rem] sm:left-[17.5rem] bottom-[0px] left-[11rem]">
           <button
             onClick={() => addToCart(product)}
-            className="mr-5 px-[25px] py-[2px] border-[1.5px] border-green-500 "
+            className="sm:mr-5 sm:px-[25px] sm:py-[2px] my-3 px-[18px] py-[1px] border-[1.5px] border-green-500 "
           >
             Add to Cart
           </button>
           <button
             onClick={() => handleBuyNow(product)}
-            className="ml-5 px-[35px] py-[3px] bg-green-500 text-white font-medium"
+            className="sm:ml-5 sm:px-[35px] sm:my-[11.5px] px-[25.5px] py-[2px] bg-green-500 text-white font-medium"
           >
             Buy Now
           </button>

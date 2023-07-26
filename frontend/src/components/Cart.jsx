@@ -77,15 +77,17 @@ const Cart = () => {
           </div>
         ))}
       </div>
-      <div className="absolute top-0 right-[3rem] bg-white w-[30%] h-[12rem]">
+      <div className="absolute top-0 right-[3rem] mx-auto bg-white w-[30%] h-[12rem]">
           <div className="m-4 text-base font-normal">
             <p>Total Quantity:<span className="px-2 font-medium">{getTotalQuanity()}</span></p>
             <p className="my-4">Total Price:<span className="px-2 font-medium">Rs.{getTotalPrice()}</span></p>
           </div>
-          <div className="mt-10 mx-[4.5rem] w-[15rem] ">
-          <button onClick={handleCheckout} className="rounded-lg bg-green-500 text-white text-[17px] leading-8 w-[15rem] h-9">
-            Proceed to Checkout
+          <div className="flex items-center justify-center my-10">
+          <div className="x-[4.5rem] w-8/12 ">
+          <button onClick={handleCheckout} className="rounded-lg bg-green-500 text-white text-[17px] leading-8 w-full h-9">
+            Checkout
           </button>
+          </div>
           </div>
           
       </div>
