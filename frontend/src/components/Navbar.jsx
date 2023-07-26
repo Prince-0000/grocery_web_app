@@ -75,10 +75,10 @@ const Navbar = () => {
             >
               Logout
             </button>
-            <div className="flex flex-row mx-auto my-[10px] ml-3">
+            <div className="flex flex-col mx-auto my-[10px] ml-3">
             <img src={user.picture} alt="Profile" className="w-9 h-9 rounded-full" />
 
-              {/* <p className="ml-3 my-1  font-medium">{(user.name).split(" ")[0]}</p> */}
+              <p className="mx-5 my-1 font-medium">{(user.name).split(" ")[0]}</p>
             </div>
           </>
         ) : (
