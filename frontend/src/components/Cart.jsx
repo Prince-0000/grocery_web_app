@@ -61,7 +61,7 @@ const Cart = () => {
   return (
     <div className="my-3">
       <div className="font-medium text-base mx-2 my-1 border-1 border-black">
-        <h1 className="px-5 py-3 border-[0.5px] border-slate-300">Your Cart</h1>
+        <h1 className="sm:px-5 sm:text-base text-sm px-3 sm:py-3 py-2 border-[0.5px] border-slate-300">Your Cart</h1>
       </div>
       <div className="relative">
       <div id="slider" className="p-2 grid grid-cols-1 divide-y gap-2 overflow-y-scroll scroll whitespace-nowrap scroll-smooth no-scrollbar">
@@ -76,9 +76,24 @@ const Cart = () => {
           />
           </div>
         ))}
+        <div className="bg-white sm:w-[70%] w-[100%]">
+          <div className="m-4 sm:text-base text-sm font-normal">
+            <p>Total Quantity:<span className="px-2 font-medium">{getTotalQuanity()}</span></p>
+            <p className="my-4">Total Price:<span className="px-2 font-medium">Rs.{getTotalPrice()}</span></p>
+            <p className="font-medium md:text-base sm:text-sm">Shipping charges on next step</p>
+          </div>
+          <div className="flex items-center justify-center my-10">
+          <div className="x-[4.5rem] w-8/12 ">
+          <button onClick={handleCheckout} className="sm:text-base text-sm rounded-lg bg-green-500 text-white text-[17px] leading-8 w-10/12 h-9">
+            Proceed to Checkout
+          </button>
+          </div>
+          </div>
+          
       </div>
-      <div className="absolute top-0 right-[3rem] mx-auto bg-white w-[30%] h-[12rem]">
-          <div className="m-4 text-base font-normal">
+      </div>
+      {/* <div className="absolute sm:top-0 sm:right-[3rem] top-2 right-2 mx-auto bg-white sm:w-[30%] w-[37%] sm:h-[12rem]">
+          <div className="m-4 sm:text-base text-sm font-normal">
             <p>Total Quantity:<span className="px-2 font-medium">{getTotalQuanity()}</span></p>
             <p className="my-4">Total Price:<span className="px-2 font-medium">Rs.{getTotalPrice()}</span></p>
           </div>
@@ -90,7 +105,7 @@ const Cart = () => {
           </div>
           </div>
           
-      </div>
+      </div> */}
       </div>
     </div>
   );

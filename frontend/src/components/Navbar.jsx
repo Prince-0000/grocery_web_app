@@ -75,10 +75,10 @@ const Navbar = () => {
             >
               Logout
             </button>
-            <div className="flex flex-col mx-auto my-[10px] ml-3">
+            <div className="flex mx-auto my-[10px] ml-3">
             <img src={user.picture} alt="Profile" className="w-9 h-9 rounded-full" />
 
-              <p className="mx-5 my-1 font-medium">{(user.name).split(" ")[0]}</p>
+              <p className="ml-3 my-1  font-medium">{(user.name).split(" ")[0]}</p>
             </div>
           </>
         ) : (
@@ -90,7 +90,7 @@ const Navbar = () => {
               Login
             </button>
             <div className="flex mx-auto my-[10px] ml-3">
-              <FaUserCircle  />
+              <FaUserCircle size={35} />
             </div>
           </>
         )}
@@ -119,7 +119,7 @@ const Navbar = () => {
           </button> */}
           <Link to="/cart">
           <div className="relative">
-            <button onClick={handleNav} className="m-5 my-5">
+            <button onClick={handleNav}className="m-5 my-5">
               <FiShoppingCart size={20} />
             </button>
             <BsFillCircleFill className="absolute top-3 left-8 text-red-500 border-xl" />
@@ -136,8 +136,8 @@ const Navbar = () => {
             >
               Logout
             </button>
-            <div className="flex mx-auto my-[10px] ml-3">
-            <img src={user.picture} alt="Profile" className="mx-auto my-[10px] ml-3 absolute top-1 right-16" />
+            <div className="mx-auto my-[10px] ml-3 w-[6rem] h-[6rem] absolute top-1 right-16">
+            <img src={user.picture} alt="Profile" className="max-w-full max-h-full" />
             </div>
           </div>
         ) : (
