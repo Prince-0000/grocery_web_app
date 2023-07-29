@@ -22,9 +22,9 @@ const CartCard = ({image,name,price,id, quantity}) => {
       <div className="flex sm:w-[100px] sm:h-[100px] h-[50x] w-[50px] items-center justify-center">
         <img className='max-w-full sm:max-h-full max-h-[4rem]' src={image} alt="speaker" />
       </div>
-      <div className="sm:py-4 sm:px-[10px] py-3">
-        <button onClick={() => decrement(id)} className="sm:px-2 px-1 sm:py-0 sm:leading-[23px] leading-[17px] border border-slate-300">-</button>
-        <button className="sm:px-2 px-1 sm:leading-[23px] leading-[17px] sm:text-base text-sm border border-slate-300">{quantity}</button>
+      <div className="sm:py-4 sm:px-[10px] py-3 ">
+        <button onClick={() => decrement(id)} className="sm:px-2 px-1 sm:leading-[23px] leading-[17px] border border-slate-300">-</button>
+        <button className="sm:px-2 px-1 sm:leading-[23px] leading-[17px] sm:text-base text-base border border-slate-300">{quantity}</button>
         <button onClick={() => increment(id)} className="sm:px-2 px-1 sm:leading-[23px] leading-[17px] border border-slate-300">+</button>
       </div>
       <p className="sm:text-base text-sm font-medium absolute top-0 sm:left-[9rem] left-[4rem]">
