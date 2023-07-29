@@ -72,11 +72,11 @@ const CardBanner = ({ head, products }) => {
                           </p>
                         </Link>
 
-                        <div className="flex items-center justify-content w-full relative py-1">
+                        <div className="flex items-center justify-content w-full relative md:py-2 py-1">
                           <button
                             onClick={() => addToCart(product)}
                             type="button"
-                            className="md:ml-4 sm:ml-3 ml-2 border-[0.5px] w-10/12 md:text-[15px] sm:text-[13px] text-[11px] md:leading-[28px] sm:leading-[25px] leading-[20px] rounded-full hover:bg-gray-100 active:bg-gray-200"
+                            className="md:ml-4 sm:ml-3 ml-2 border-[0.5px] w-10/12 md:text-[15px] sm:text-[13px] text-[11px] md:leading-[28px] sm:leading-[25px] leading-[24px] rounded-full hover:bg-gray-100 active:bg-gray-200"
                           >
                             Add to Cart
                           </button>
