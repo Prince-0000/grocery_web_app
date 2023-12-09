@@ -10,16 +10,22 @@ These instructions will get you a copy of the project up and running on your loc
 
 A step by step series of examples that tell you how to get a development env running
 
-Say what the step will be
+To install node moduels packages and package.json dependency in both frontend and backend folder, run the command:
 
 ```
-Give the example
+npm install
 ```
 
-And repeat
+To run frontend
 
 ```
-until finished
+npm start
+```
+
+To run backend
+
+```
+nodemon server.js
 ```
 
 End with an example of getting some data out of the system or using it for a little demo
