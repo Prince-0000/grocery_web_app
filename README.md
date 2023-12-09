@@ -1,18 +1,10 @@
-# Project Title
+# Grocery Store Web Application
 
-One Paragraph of project description goes here
+This web application allows users to purchase groceries, similar to JioMart. Users can log in or sign up using Google authentication, browse products by category, sort the products for easier navigation, after adding product to cart, user can complete their purchases through Stripe.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-### Prerequisites
-
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Installing
 
