@@ -6,9 +6,15 @@ This web application allows users to purchase groceries, similar to JioMart. Use
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-### Installing
+### Clone
 
-A step by step series of examples that tell you how to get a development env running
+Go to terminal, then write 
+
+```
+git clone https://github.com/Prince-0000/grocery_web_app.git
+```
+
+### Installing
 
 To install node moduels packages and package.json dependency in both frontend and backend folder, run the command:
 
@@ -16,13 +22,13 @@ To install node moduels packages and package.json dependency in both frontend an
 npm install
 ```
 
-To run frontend
+To run frontend, move to the folder "cd frontend" then,
 
 ```
 npm start
 ```
 
-To run backend
+To run backend, move to folder "cd backend" then, 
 
 ```
 nodemon server.js
@@ -30,15 +36,12 @@ nodemon server.js
 
 ## Deployment
 
-Our Project is deployed on vercel. Link of the project:
+Our Project is deployed on vercel, Project link:
 https://dukaann.vercel.app/
 
 ## Built With
 
 * React.js - Build frontend
-* Sanity.io - Content Mangement
+* Sanity.io - Content Mangement System
 * Node.js - Build Backend
 * Tailwind - Design Components
-
-
-
