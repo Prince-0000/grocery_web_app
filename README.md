@@ -39,9 +39,10 @@ nodemon server.js
 Our Project is deployed on vercel, Project link:
 https://dukaann.vercel.app/
 
-## Built With
+## Tech used
 
-* React.js - Build frontend
+* React.js - Frontend
 * Sanity.io - Content Mangement System
-* Node.js - Build Backend
+* Node.js - Backend
 * Tailwind - Design Components
+* Stripe - Payment Gateway
